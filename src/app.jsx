@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Spinner from '@components/FullPageSpinner';
+import React from "react";
+import Spinner from "@components/FullPageSpinner";
 
 function App() {
   return <Spinner />;
