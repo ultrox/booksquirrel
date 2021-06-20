@@ -36,6 +36,10 @@ exports.isLoggedIn = (usrOptions) => {
     const userAuthenticated =
       typeof req.isAuthenticated === "function" ? req.isAuthenticated() : false;
 
-    return userAuthenticated ? next() : res.redirect(url);
+    if (userAuthenticated) {
+      return next();
+    }
+
+    return res.status(401).json({ message: "Authentication invalid" });
   };
 };

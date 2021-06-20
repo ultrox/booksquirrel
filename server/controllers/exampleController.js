@@ -1,3 +1,3 @@
-exports.hi = async (req, res) => {
-  res.send(`Hello world!`);
+exports.me = async (req, res) => {
+  res.json(req.user);
 };
