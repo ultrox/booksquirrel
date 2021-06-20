@@ -22,7 +22,7 @@ passport.use(
       // allows for account linking and authentication with other identity
       // providers.
 
-      const currentUser = await UserService.findUserByGId(profile.id);
+      const currentUser = await UserService.findUserByPId(profile.id);
       if (currentUser) {
         // already have the user -> return (login)
         currentUser.lastVisited = new Date();
@@ -30,8 +30,8 @@ passport.use(
       }
       // register user and return
       // done(err)
-      const gprofile = UserService.processGoogleProfile(profile);
-      const newUser = await UserService.addGoogleUser(gprofile);
+      const formattedProfile = UserService.processGoogleProfile(profile);
+      const newUser = await UserService.addGoogleUser(formattedProfile);
       return done(null, newUser);
     },
   ),

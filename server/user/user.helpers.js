@@ -1,7 +1,7 @@
 exports.processGoogleProfile = (profile) => {
   const res = {
     provider: profile.provider,
-    googleId: profile.id,
+    providerId: profile.id,
     firstName: profile.name.givenName,
     lastName: profile.name.familyName,
   };
