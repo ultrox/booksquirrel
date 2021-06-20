@@ -1,15 +1,4 @@
 {
-  "settings": {
-    "import/resolver": {
-      "alias": {
-        "map": [
-          ["@components", "./src/components/"],
-          ["@bs", "src/"]
-        ],
-        "extensions": [".js", ".jsx"]
-      }
-    }
-  },
   "env": {
     "browser": true,
     "es2021": true
@@ -24,6 +13,7 @@
   },
   "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
+    "import/no-unresolved": 0,
     "react/jsx-filename-extension": [0],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
