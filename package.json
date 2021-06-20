@@ -7,6 +7,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
@@ -27,7 +28,7 @@
     "vite": "^2.3.7"
   },
   "prettier": {
-    "printWidth": 100,
+    "printWidth": 80,
     "semi": true,
     "singleQuote": false,
     "tabWidth": 2,
