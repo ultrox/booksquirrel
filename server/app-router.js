@@ -4,7 +4,6 @@ const passport = require("passport");
 const router = express.Router();
 const controller = require("./controllers/exampleController");
 const { isLoggedIn } = require("./user");
-const { createShortLink, getShortLink } = require("./controllers/shortUrlController");
 const { catchErrors } = require("./handlers/errorHandlers");
 
 const { FRONTEND_BASE_URL } = process.env;
@@ -15,8 +14,6 @@ router.get("/", (req, res) => {
 
 // catchErrors are only needed for async/await
 router.get("/me", isLoggedIn(`${FRONTEND_BASE_URL}/login`), catchErrors(controller.me));
-router.post("/createShortLink", catchErrors(createShortLink));
-router.get("/getShortLink/:shortcode", catchErrors(getShortLink));
 
 router.get("/login/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
