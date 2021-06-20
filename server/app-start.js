@@ -5,6 +5,7 @@ mongoose.set("useFindAndModify", false);
 
 // import all models
 require("./models/ShortUrlModel");
+require("./user/user.model");
 
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
