@@ -2,9 +2,9 @@ const helpers = require("./user.helpers");
 
 const addGoogleUser =
   (User) =>
-  ({ googleId, email, firstName, lastName, profilePhoto, provider }) => {
+  ({ providerId, email, firstName, lastName, profilePhoto, provider }) => {
     const user = new User({
-      googleId,
+      providerId,
       firstName,
       lastName,
       email,
@@ -17,7 +17,11 @@ const addGoogleUser =
 
 const getUsers = (User) => () => User.find({});
 
-const findByGId = (User) => async (id) => User.findOne({ googleId: id });
+/**
+ *
+ * @description Find user by provider id
+ */
+const findByPId = (User) => async (id) => User.findOne({ providerId: id });
 const findById = (User) => async (id) => User.findOne({ _id: id });
 const getUserByEmail = (User) => async (email) => User.findOne({ email });
 
@@ -25,7 +29,7 @@ module.exports = (User) => ({
   isLoggedIn: helpers.isLoggedIn,
   processGoogleProfile: helpers.processGoogleProfile,
   addGoogleUser: addGoogleUser(User),
-  findUserByGId: findByGId(User),
+  findUserByPId: findByPId(User),
   findUserById: findById(User),
   getUsers: getUsers(User),
   getUserByEmail: getUserByEmail(User),

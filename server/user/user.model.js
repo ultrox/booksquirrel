@@ -8,7 +8,7 @@ const validator = require("validator");
 const mongodbErrorHandler = require("mongoose-mongodb-errors");
 
 const userSchema = new Schema({
-  googleId: {
+  providerId: {
     type: String,
   },
   firstName: {
